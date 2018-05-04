@@ -44,7 +44,7 @@ def vanity_projects
     .select(:id, :title, 'actors.name' )
     .joins(:actors)
     .where('movies.director_id = actors.id')
-    .where('castings.ord = 1')
+    .where(castings: {ord: 1})
 end
 
 def most_supportive
